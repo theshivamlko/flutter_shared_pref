@@ -47,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: ListView(
-          
           children: <Widget>[
             TextField(
               controller: nameController,
@@ -104,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 util.saveData('age', int.parse(ageController.text));
 
                 bool isGraduate = groupValue == 1 ? true : false;
+                print(isGraduate);
 
                 util.saveData('isGraduate', isGraduate);
 
@@ -120,19 +120,20 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.blue,
               onPressed: () {
                 //Since reading from SharedPreference in Async
-                String name = util.getSaveData('name')??'NA';
-                int age = util.getSaveData('age')??'NA';
+                String name = util.getSaveData('name') ?? 'NA';
+                int age = util.getSaveData('age') ?? 0;
 
-                groupValue = util.getSaveData('isGraduate')??false ? 1 : 2;
+                groupValue = util.getSaveData('isGraduate') ?? false ? 1 : 2;
+                String graduate = groupValue==1 ? 'Graduates' : 'Not a Graduate';
 
-                nameController.text=name;
-                ageController.text=age.toString();
+                nameController.text = name;
+                ageController.text = age.toString();
 
                 setState(() {
                   outPutText = 'Data from Shared Preference \n'
-                      '$name \n'
-                      '$age \n'
-                      '$groupValue \n';
+                      'Name: $name \n'
+                      'Age: $age \n'
+                      '$graduate \n';
                 });
               },
             ),
