@@ -1,16 +1,14 @@
-# shared_pref
+# Better way of using Shared Preference
 
-A new Flutter project.
+Using Shared Preference in Flutter.This project is to understand Shared Preference in Flutter and proper use in projects.<br>
+Coding patterns may vary with developers.
+<br><br>
+![Sample](https://github.com/theshivamlko/flutter_shared_pref/blob/master/shared_pref_sample.gif)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### Created By
+## Shivam Srivastava
+Android and Flutter Developer, >3 years exp.
+([Twitter](https://twitter.com/theshivamlko)) 
+([LinkedIn](https://www.linkedin.com/in/theshivamlko))
+([Instagram](https://www.instagram.com/theshivamlko))
