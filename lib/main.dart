@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'utilities.dart' as util;
 
-void main() => runApp(MyApp());
+void main() {
+  util.initialize();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -35,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    util.initialize();
   }
 
   @override
@@ -99,13 +101,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               color: Colors.blue,
               onPressed: () {
-                util.saveData('name', nameController.text);
-                util.saveData('age', int.parse(ageController.text));
+                util.appSharedPreference.saveData('name', nameController.text);
+                util.appSharedPreference
+                    .saveData('age', int.parse(ageController.text));
 
                 bool isGraduate = groupValue == 1 ? true : false;
                 print(isGraduate);
 
-                util.saveData('isGraduate', isGraduate);
+                util.appSharedPreference.saveData('isGraduate', isGraduate);
 
                 setState(() {
                   outPutText = 'Saved to Shared Preference';
@@ -120,11 +123,16 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.blue,
               onPressed: () {
                 //Since reading from SharedPreference in Async
-                String name = util.getSaveData('name') ?? 'NA';
-                int age = util.getSaveData('age') ?? 0;
+                String name =
+                    util.appSharedPreference.getSaveData('name') ?? 'NA';
+                int age = util.appSharedPreference.getSaveData('age') ?? 0;
 
-                groupValue = util.getSaveData('isGraduate') ?? false ? 1 : 2;
-                String graduate = groupValue==1 ? 'Graduates' : 'Not a Graduate';
+                groupValue =
+                    util.appSharedPreference.getSaveData('isGraduate') ?? false
+                        ? 1
+                        : 2;
+                String graduate =
+                    groupValue == 1 ? 'Graduates' : 'Not a Graduate';
 
                 nameController.text = name;
                 ageController.text = age.toString();
