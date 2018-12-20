@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'utilities.dart' as util;
 
 void main() {
+  // to initialize objects at start of app
   util.initialize();
+
   runApp(MyApp());
 }
 
